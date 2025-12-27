@@ -12,10 +12,18 @@ let playerInput = document.getElementById ("player-input")
 
 let player = {
     name: "Player",
-    chips: 700
+    chips: 0
 }
 let playerEl = document.getElementById("player-el")
 playerEl.textContent = player.name + ": $" + player.chips
+
+function applyName() {
+    isAlive = false
+    player.chips = 700
+    player.name = playerInput.value
+    playerEl.textContent = player.name + ": $" + player.chips
+
+}
 
 function getRandomCard() {
     let randomCard = Math.floor(Math.random() * 13 ) + 1
@@ -54,9 +62,12 @@ function startGame() {
     } else if (sum === 21) {
     message = "You've got Blackjack";
     hasBlackJack = true;
+    player.chips += 100
+    playerEl.textContent = player.name + ": $" + player.chips
     } else {
     message = "You're out of the game!";
     isAlive = false;
+    player.chips -= 100
     } 
 
     messageEl.textContent = message;
@@ -70,6 +81,14 @@ function newCard() {
     cards.push(newCard)
     renderGame()
     }
+    if (hasBlackJack === true) {
+        player.chips += 100
+        playerEl.textContent = player.name + ": $" + player.chips
+    }
+    else if (isAlive === false) {
+        playerEl.textContent = player.name + ": $" + player.chips
+
+    }
     
 }
 
@@ -82,6 +101,7 @@ function restart(){
 
 function applyName() {
     isAlive = false
+    player.chips = 700
     player.name = playerInput.value
     playerEl.textContent = player.name + ": $" + player.chips
 
