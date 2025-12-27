@@ -59,5 +59,10 @@ button:hover{
     width: 60px;
     padding: 4px 6px;
     font-size: 12px;
+    color: black;
+    background-color: #01f9f1;
 }
 
+.apply-input:hover {
+    background-color: #004e4a;
+}
