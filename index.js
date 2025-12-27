@@ -8,10 +8,11 @@ let messageEl = document.querySelector(".message-el");
 //let sumEl = document.getElementById("sum-el");
 let sumEl = document.querySelector(".sum-el");
 let cardsEl = document.querySelector(".cards-el");
+let playerInput = document.getElementById ("player-input")
 
 let player = {
     name: "Player",
-    chips: 145
+    chips: 700
 }
 let playerEl = document.getElementById("player-el")
 playerEl.textContent = player.name + ": $" + player.chips
@@ -76,6 +77,13 @@ function restart(){
     isAlive = false
     cardsEl.textContent = "Cards: "
     sumEl.textContent = "Sum: "
+
+}
+
+function applyName() {
+    isAlive = false
+    player.name = playerInput.value
+    playerEl.textContent = player.name + ": $" + player.chips
 
 }
 
