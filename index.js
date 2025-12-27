@@ -41,6 +41,7 @@ function getRandomCard() {
 
 function startGame() {
     //gameStarted = true
+    hasBlackJack = false;
     isAlive = true;
     let firstCard = getRandomCard();
     let secondCard = getRandomCard();
@@ -94,6 +95,7 @@ function newCard() {
 
 function restart(){
     isAlive = false
+    hasBlackJack = false
     cardsEl.textContent = "Cards: "
     sumEl.textContent = "Sum: "
 
